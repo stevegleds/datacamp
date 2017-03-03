@@ -35,3 +35,14 @@ print(pd.DataFrame(data=my_data))
 my_data = data_dataframe
 print('dataframe shape is: ', my_data.shape)
 print('columns in dataframe are: ', len(my_data.index))
+
+# This dataframe has duplicate index value: 4.8. we can remove the duplicate but it also removes the duplicate entry.
+# Need to be sure which row will be deleted. In this example it is the first one (lowest index) that is deleted.
+# There is a keep=last parameter
+df = pd.DataFrame(data=np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9], [40, 50, 60], [23, 35, 37]]),
+                  index= [2.5, 12.6, 4.8, 4.8, 2.5],
+                  columns=[48, 49, 50])
+print(df)
+df = df.reset_index().drop_duplicates(subset='index', keep='last').set_index('index')
+print(df)
+
