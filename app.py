@@ -36,5 +36,7 @@ my_data = data_dataframe
 print('dataframe shape is: ', my_data.shape)
 print('columns in dataframe are: ', len(my_data.index))
 
+# Using csv:
+data = pd.read_csv('filename') # header is conveniently inferred by default
 
 

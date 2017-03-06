@@ -92,10 +92,10 @@ print(pivot_products)
 
 #Simply use iterrows():
 
-df = pd.DataFrame(data=np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]), columns=['A', 'B', 'C'])
+df = pd.DataFrame(data=np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]), columns=['Runner', 'Pace', 'Date'])
 
-for index, row in df.iterrows() :
-    print(row['A'], row['B'])
+for index, row in df.iterrows():
+    print(row['Runner'], row['Pace'])
 
 # ************ Write to csv or excel ************
 
