@@ -108,3 +108,15 @@ writer = pd.ExcelWriter('myDataFrame.xlsx')
 df.to_excel(writer, 'DataFrame')
 writer.save()
 
+''' finding pbs:
+If you want more information about this run (date and time and digitime) :
+
+Produces:
+
+           Date               Runner      Time   Pace  Digitime
+0    05/01/2015        James Goodall  00:18:30   6.17      18.5
+1    05/01/2015        Paul Stanhope  00:20:33   6.85      20.6
+4    05/01/2015       Chris Stanhope  00:23:32   7.84      23.5
+'''
+pbs = data.groupby(['Runner'])['Pace'].transform(min) == data['Pace']
+print(data[pbs])
