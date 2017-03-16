@@ -118,5 +118,14 @@ Produces:
 1    05/01/2015        Paul Stanhope  00:20:33   6.85      20.6
 4    05/01/2015       Chris Stanhope  00:23:32   7.84      23.5
 '''
-pbs = data.groupby(['Runner'])['Pace'].transform(min) == data['Pace']
-print(data[pbs])
+byrunner['Digitime'].min()
+byrunner['Digitime'].agg([np.min, np.sum, np.mean, len])
+pb = byrunner['Digitime'].transform(min) == df['Digitime']
+print(df[pb].sort(['Runner'], ascending=[True]))
+
+'''
+.describe() produces count, mean, min, max, 25%, std, etc. !
+.min() produces what we need
+.aggregate(np.sum) uses numpy to add all times for each runner
+.sort(['Runner']) sorts by runner. Can also sort by more than one column and choose sort order
+'''
